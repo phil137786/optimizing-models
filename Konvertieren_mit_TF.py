@@ -5,6 +5,8 @@ import tensorflow as tf
 
 from tensorflow.keras.applications.resnet50 import ResNet50
 
+
+
 model1 = 'resnet50_saved_model'
 model2 = 'mobileNetV2_saved_model'
 
@@ -30,5 +32,5 @@ def ResNet50_einlesen():
 def MobileNetV2_einlesen():
     model = model = MobileNetV2(weights='imagenet')
     model.save('mobileNetV2_saved_model') 
-    
+
 
