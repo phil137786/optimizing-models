@@ -5,24 +5,30 @@ import tensorflow as tf
 
 from tensorflow.keras.applications.resnet50 import ResNet50
 
-# Es wird das MobileNetV2 Modell mit Standartgewichtung verwendet
-model = MobileNetV2(weights='imagenet')
+model1 = 'resnet50_saved_model'
+model2 = 'mobileNetV2_saved_model'
 
 output_saved_model_dir=''
 
 def test1():
-    converter = trt.TrtGraphConverterV2(input_saved_model_dir=model)
+    # klappt nicht weil funktion nich da
+    converter = trt.TrtGraphConverterV2(input_saved_model_dir=model1)
     converter.convert()
     converter.save(output_saved_model_dir)
 
 def test2():
+    # funktioniert nicht weil Windows
     params = tf.experimental.tensorrt.ConversionParams(precision_mode='FP16')
     converter = tf.compiler.tensorrt.trt_convert_windows (input_saved_model_dir="resnet50_saved_model", conversion_params=params)
     converter.convert()
     converter.save('next test')
 
-def modell_einlesen():
+def ResNet50_einlesen():
     model = ResNet50(weights='imagenet')
     model.save('resnet50_saved_model') 
 
-test2()
+def MobileNetV2_einlesen():
+    model = model = MobileNetV2(weights='imagenet')
+    model.save('mobileNetV2_saved_model') 
+    
+
