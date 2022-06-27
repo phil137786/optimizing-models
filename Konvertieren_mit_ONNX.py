@@ -1,15 +1,16 @@
 from tensorflow.keras.applications.resnet50 import ResNet50
-import tf2onnx
-import onnx
+import keras2onnx
 import tensorflow as tf
+import numpy as np
 
+
+BATCH_SIZE = 32
+shape = (BATCH_SIZE, 224, 224, 3)
 
 # load keras model
-
 model = ResNet50(include_top=True, weights='imagenet')
-input_signature=[tf.TensorSpec(shape=None, dtype=tf.float32)]
 
-# convert to onnx model
-onnx_model = tf2onnx.convert.from_keras(model, input_signature=input_signature)
 
-onnx.save(onnx_model, "dst/path/model.onnx")
+#output_model_path = "keras_efficientNet.onnx"
+#onnx_model = keras2onnx.convert_keras(model, model.name)
+#keras2onnx.save_model(onnx_model, output_model_path)
