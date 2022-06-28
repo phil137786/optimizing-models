@@ -10,8 +10,6 @@ def representative_dataset():
       data = np.random.rand(1, 244, 244, 3)
       yield [data.astype(np.float32)]
 
-
-
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
 converter.representative_dataset = representative_dataset
