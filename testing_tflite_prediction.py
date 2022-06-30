@@ -5,7 +5,8 @@ import sys
 import numpy as np
 
 folder_path = "prepared_img224x224"
-TFLITE_MODEL='tf_lite_model.tflite'
+#TFLITE_MODEL='tf_lite_model.tflite'
+TFLITE_MODEL='mobilenet_v2_1.0_224_quant.tflite'
 
 tflite_interpreter = tf.lite.Interpreter(model_path=TFLITE_MODEL)
 
@@ -40,5 +41,5 @@ tflite_interpreter.set_tensor(input['index'], val_image_batch)
 tflite_interpreter.invoke()
 print(tflite_interpreter.get_tensor(output['index']).shape)
 
-x=np.argmax(tflite_interpreter.get_tensor(output['index']))
+x= np.argmax(tflite_interpreter.get_tensor(output['index']))
 print(x)
