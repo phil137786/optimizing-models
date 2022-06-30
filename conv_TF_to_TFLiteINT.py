@@ -2,11 +2,11 @@ import tensorflow as tf
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
 import numpy as np
 
-model = model = MobileNetV2(weights='imagenet')
+model = MobileNetV2(weights='imagenet')
 
 def representative_dataset():
     for _ in range(100):
-      data = np.random.rand(1, 244, 244, 3)
+      data = np.random.rand(10, 244, 244, 3)
       yield [data.astype(np.float32)]
 
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
