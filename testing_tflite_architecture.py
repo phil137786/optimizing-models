@@ -6,11 +6,8 @@ import numpy as np
 
 
 
-#TFLITE_MODEL='./models/output_quant_test.tflite'
-#TFLITE_MODEL='./models/output_quant.tflite'
-#TFLITE_MODEL='./models/output_quant3_test.tflite'
-#TFLITE_MODEL='mobilenet_v2_1.0_224.tflite'
-TFLITE_MODEL='mobilenet_v2_1.0_224_quant.tflite'
+TFLITE_MODEL='mobilenet_v2_1.0_224.tflite'
+#TFLITE_MODEL='mobilenet_v2_1.0_224_quant.tflite'
 
 
 
