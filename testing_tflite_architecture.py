@@ -1,18 +1,9 @@
 import tensorflow as tf
-import cv2 
 import pathlib
 import sys
 import numpy as np
 
-
-
-#TFLITE_MODEL='./models/output_quant_test.tflite'
-#TFLITE_MODEL='./models/output_quant.tflite'
-#TFLITE_MODEL='./models/output_quant3_test.tflite'
-#TFLITE_MODEL='mobilenet_v2_1.0_224.tflite'
-TFLITE_MODEL='mobilenet_v2_1.0_224_quant.tflite'
-
-
+TFLITE_MODEL='test.tflite'
 
 tflite_interpreter = tf.lite.Interpreter(model_path=TFLITE_MODEL)
 
