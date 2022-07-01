@@ -36,5 +36,5 @@ converter.inference_input_type = tf.uint8
 converter.inference_output_type = tf.uint8
 tflite_model = converter.convert()
 
-with open('mobilenet_v2_1.0_224_quant.tflite', 'wb') as f:
+with open('test.tflite', 'wb') as f:
   f.write(tflite_model)
