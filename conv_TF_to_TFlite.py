@@ -6,5 +6,5 @@ model = model = MobileNetV2(weights='imagenet')
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 tflite_model = converter.convert()
 
-with open('mobilenet_v2_1.0_224.tflite', 'wb') as f:
+with open('mobileNetV2_2.tflite', 'wb') as f:
   f.write(tflite_model)
