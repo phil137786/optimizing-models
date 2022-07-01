@@ -2,17 +2,17 @@
 
 
 import tensorflow as tf
-from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
+from tensorflow.keras.applications.efficientnet import EfficientNetB4
 import numpy as np
 
-model = MobileNetV2(weights='imagenet')
+model = EfficientNetB4(weights='imagenet')
 
-folder_path = "prepared_img224x224"
+folder_path = "prepared_img380x380"
 
 from tensorflow.keras.preprocessing.image import load_img
-data = np.empty((10, 224, 224, 3),dtype=np.float32)
+data = np.empty((10, 380, 380, 3),dtype=np.float32)
 for i in range(10):
-    data[i] = load_img('prepared_img224x224/' + str(i) + '.jpg')
+    data[i] = load_img('prepared_img380x380/' + str(i) + '.jpg')
 
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 val_image_batch = preprocess_input(data)
@@ -36,5 +36,5 @@ converter.inference_input_type = tf.uint8
 converter.inference_output_type = tf.uint8
 tflite_model = converter.convert()
 
-with open('mobileNetV2_quant.tflite', 'wb') as f:
+with open('EfficientNetB4_quant.tflite', 'wb') as f:
   f.write(tflite_model)
