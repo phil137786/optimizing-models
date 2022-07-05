@@ -3,12 +3,7 @@ import pathlib
 import sys
 import numpy as np
 
-
-
-
-=======
 TFLITE_MODEL='test.tflite'
->>>>>>> dd3d81fa6692e15cdb571f4f416fac6a7fcd290f
 
 tflite_interpreter = tf.lite.Interpreter(model_path=TFLITE_MODEL)
 
